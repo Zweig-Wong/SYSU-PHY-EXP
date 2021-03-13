@@ -1,2 +1,3 @@
 # SYSU-PHY-EXP-I
-data processing of EXP-I with python
+Data processing project of the course 'basic physical experiment I'
+
