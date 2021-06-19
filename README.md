@@ -1,3 +1,3 @@
 # SYSU-PHY-EXP-I
-Data analysis of BASIC PHYSICS EXPERIMENT I & Optical simulation experiment on SeeLight
-
+Data processing of BASIC PHYSICS EXPERIMENT I & Optical simulation experiment on SeeLight platform
+Finished！HooRay!!!
