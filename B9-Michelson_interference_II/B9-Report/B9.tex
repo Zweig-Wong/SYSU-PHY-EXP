@@ -2,7 +2,12 @@
 \documentclass[12pt,a4paper,UTF8]{ctexart}
 \usepackage{geometry}
 	\geometry{left=2.5cm,right=2.5cm,top=3.2cm,bottom=2.8cm}
-\usepackage{xeCJK,amsmath,paralist,enumitem,booktabs,multirow,graphicx,subfig,setspace,listings,lastpage,hyperref}
+\usepackage{xeCJK,amsmath,paralist,enumitem,booktabs,multirow,graphicx,subfig,setspace,listings,lastpage}
+\usepackage[colorlinks,
+            linkcolor=blue,       
+            anchorcolor=blue,  
+            citecolor=blue,       
+            ]{hyperref}
 	\setlength{\parindent}{2em}
 	\lstset{language=Python}
 \usepackage{fancyhdr}
@@ -14,6 +19,34 @@
 	\renewcommand{\headrulewidth}{0.4pt}
 	\renewcommand{\theenumi}{(\arabic{enumi})}
 
+% code
+\usepackage{xcolor}  	%高亮使用的颜色
+\definecolor{commentcolor}{RGB}{85,168,180}
+\definecolor{stringcolor}{RGB}{150,219,100}
+\definecolor{keywordcolor}{RGB}{198,120,221}
+\definecolor{backcolor}{RGB}{230,230,230}
+\usepackage{accsupp}	
+\newcommand{\emptyaccsupp}[1]{\BeginAccSupp{ActualText={}}#1\EndAccSupp{}}
+\lstset{						%高亮代码设置
+	language=python, 					%Python语法高亮
+	linewidth=0.9\linewidth,      		%列表list宽度
+	%basicstyle=\ttfamily,				%tt无法显示空格
+	commentstyle=\color{commentcolor},	%注释颜色
+	keywordstyle=\color{keywordcolor},	%关键词颜色
+	stringstyle=\color{stringcolor},	%字符串颜色
+	%showspaces=true,					%显示空格
+	numbers=left,						%行数显示在左侧
+	numberstyle=\tiny\emptyaccsupp,		%行数数字格式
+	numbersep=5pt,						%数字间隔
+	frame=single,						%加框
+	framerule=0pt,						%不划线
+	escapeinside=@@,					%逃逸标志
+	emptylines=1,						%
+	xleftmargin=3em,					%list左边距
+	backgroundcolor=\color{backcolor},	%列表背景色
+	tabsize=4,							%制表符长度为4个字符
+	gobble=4							%忽略每行代码前4个字符
+	}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%正文开始%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -133,20 +166,31 @@
 
 \subsection*{【数据处理及分析】}
 	\subsubsection*{1. 测量钠双黄线波长差}
-		条纹模糊$\to$清晰$\to$模糊周期中$M_1$移动的距离$\Delta d$为(mm)：
-		
+		条纹模糊$\to$清晰$\to$模糊周期中：
+		\paragraph{条纹完全模糊时$M_1$的位置(mm)：}~
+		\newline
+		\indent
+		$$
+		[12.360,12.665,12.940,13.245,13.525,13.800,14.105,14.395,14.680,14.975,15.270]
+		$$
+		\paragraph{条纹相邻两次模糊$M_1$移动的距离$\Delta d$(mm)：}~
+		\newline
+		\indent
 		$$
 		[0.305,0.275,0.305,0.280,0.275,0.305,0.290,0.285,0.295,0.295]
 		$$
 
 		平均值为$\Delta d = 0.291 mm$，标准差为$0.012mm$。取$\bar\lambda = 589.3nm$，代入公式$\Delta \lambda = \frac{\bar\lambda^2}{2\Delta d}$计算得$\Delta \lambda = 0.597nm$
 
-		不确定度$S = 0.027nm$，故
+		A类不确定度为$S_a = 0.024nm$，B类不确定度为$S_b = 0.012nm$，合成不确定度为$S = 0.027nm$。
+		
+		故
 
 		$$
-		\Delta \lambda = 0.597 \pm 0.027 nm
+		\Delta \lambda = 0.597 \pm 0.03 nm
 		$$
-
+		
+		计算代码见：\nameref{sec:code1}
 	\subsubsection*{2. 白光干涉的调节并测透明薄片的折射率}
 
 		\paragraph{测量薄片厚度}~
@@ -189,11 +233,12 @@
 		
 		代入$n = \frac{\Delta d}{t}+1$计算得$n = 1.486$
 
-		不确定度$S = 0.062$,故
+		A类不确定度为$S_a = 0.046$，B类不确定度为$S_b = 0.040$，合成不确定度为$S = 0.062$,故
 		$$
-		n = 1.486 \pm 0.062
+		n = 1.486 \pm 0.06
 		$$
-
+		
+		计算代码见：\nameref{sec:code2}
 		
 
 \subsection*{【思考题】}
@@ -209,7 +254,54 @@
 		答：利用恒温装置控制温度，利用迈克耳孙干涉仪分别测定在不同温度下空气的折射率，测得多组数据后拟合空气折射率随温度变化关系曲线，外推得到特定温度对应的空气折射率。
 
 
+\subsection*{【主要计算代码】}
+\subsubsection*{1. 测量钠双黄线波长差计算代码}
+\label{sec:code1}
+\begin{lstlisting}
+	d = df2.mean()[0]*1e6
+	# mean & std of each measurements
+	Sd = df2.std()[0]*1e6
+
+	# Diff
+	ds = sp.symbols('ds') 
+	delta_lam =  589.3**2/(2*ds)
+	subs = {'ds':d}
+	delta_lam_d = sp.diff(delta_lam, 'ds').evalf(subs = subs) 
+
+	# S
+	Sa = ( (Sd*(delta_lam_d))**2 )**(1/2)
+	u = 0.01*1e6/(3**(1/2)) 
+	Sb = ( (u*delta_lam_d)**2  )**(1/2)
+	S = ( (Sa)**2 + (Sb)**2 )**(1/2)
+	print('Sa = {}\nSb = {}\nS = {}'.format(Sa, Sb, S))
+\end{lstlisting}
+
+\subsubsection*{2. 白光干涉的调节并测透明薄片的折射率计算代码}
+\label{sec:code2}
+\begin{lstlisting}
+	# mean & std of each measurements
+	delta_d = 0.078
+	t = 0.160
+	Sdelta_d = 0.003
+	St = 0.014
+	
+	# Diff
+	delta_ds, ts = sp.symbols('delta_ds ts') 
+	n = 1+delta_ds/ts
+	subs = {'delta_ds':delta_d, 'ts':t} 
+	n_delta_d, n_t = tuple(sp.diff(n, i).evalf(subs = subs) 
+	                        for i in ['delta_ds', 'ts'])  
+	print(n_delta_d, n_t)
+	
+	# S
+	Sa = ( (Sdelta_d*n_delta_d)**2 + (St*n_t)**2)**(1/2)
+	u = 0.01/(3**(1/2)) 
+	Sb = ( (u*n_delta_d)**2 + (u*n_t)**2)**(1/2)
+	S = ( (Sa)**2 + (Sb)**2 )**(1/2)
+	print('Sa = {}\nSb = {}\nS = {}'.format(Sa, Sb, S))
+\end{lstlisting}
+
 \subsection*{【项目源码】}
-\url{https://github.com/Jeg-Vet/SYSU-PHY-EXP/tree/main/B9-Michelson_interference_II}
+\href{https://github.com/Jeg-Vet/SYSU-PHY-EXP/tree/main/B9-Michelson_interference_II}{SYSU-PHY-EXP/B9 Michelson interference II.Jeg-Vet(github.com)}
 		
 \end{document}
