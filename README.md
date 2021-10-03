@@ -24,5 +24,7 @@ Repository for lab of general physics.
 
 ## PHY-EXP-II
 
-- C2- Franck_Hertz_experiment
+- C2-Franck_Hertz_experiment
+- B9-Michelson_interference_II
+- B13-Ultrasonic_grating
 
