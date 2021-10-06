@@ -13,6 +13,35 @@
 	\rfoot{\today}
 	\renewcommand{\headrulewidth}{0.4pt}
 	\renewcommand{\theenumi}{(\arabic{enumi})}
+	
+% code
+\usepackage{xcolor}  	%高亮使用的颜色
+\definecolor{commentcolor}{RGB}{85,168,180}
+\definecolor{stringcolor}{RGB}{150,219,100}
+\definecolor{keywordcolor}{RGB}{198,120,221}
+\definecolor{backcolor}{RGB}{230,230,230}
+\usepackage{accsupp}	
+\newcommand{\emptyaccsupp}[1]{\BeginAccSupp{ActualText={}}#1\EndAccSupp{}}
+\lstset{						%高亮代码设置
+	language=python, 					%Python语法高亮
+	linewidth=0.9\linewidth,      		%列表list宽度
+	%basicstyle=\ttfamily,				%tt无法显示空格
+	commentstyle=\color{commentcolor},	%注释颜色
+	keywordstyle=\color{keywordcolor},	%关键词颜色
+	stringstyle=\color{stringcolor},	%字符串颜色
+	%showspaces=true,					%显示空格
+	numbers=left,						%行数显示在左侧
+	numberstyle=\tiny\emptyaccsupp,		%行数数字格式
+	numbersep=5pt,						%数字间隔
+	frame=single,						%加框
+	framerule=0pt,						%不划线
+	escapeinside=@@,					%逃逸标志
+	emptylines=1,						%
+	xleftmargin=3em,					%list左边距
+	backgroundcolor=\color{backcolor},	%列表背景色
+	tabsize=4,							%制表符长度为4个字符
+	gobble=4							%忽略每行代码前4个字符
+	}
 
 %%begin-----------------参考文献-----------------------%%
 \usepackage[colorlinks,linkcolor=blue,urlcolor=blue]{hyperref}
@@ -36,7 +65,7 @@
 	\begin{tabular}{ll}
 	 & \\
 	{\CJKfontspec{Droid Sans Fallback} 实验人：黄子维 20980066} & {\CJKfontspec{Droid Sans Fallback}合作者：黄睿杰 20980062}\\
-	{\CJKfontspec{Droid Sans Fallback} 实验时间：2021.10.30~星期四~上午} & {\CJKfontspec{Droid Sans Fallback} 室温：27$^{\circ}$C~相对湿度：62\%}
+	{\CJKfontspec{Droid Sans Fallback} 实验时间：2021.9.30~星期四~上午} & {\CJKfontspec{Droid Sans Fallback} 室温：27$^{\circ}$C~相对湿度：62\%}
 	\end{tabular}
 \end{doublespacing}
 %%end-------------------标题与信息-----------------------%%
@@ -217,11 +246,11 @@
 
 \subsubsection*{2.采用衍射角法测量声速}
 
-直接采用分光计的望远镜目镜，测量不同条纹的衍射角，根据式（5）和式（6）计算液体中超声波的波长$\varLambda$ 计算液体中声速u.
+直接采用分光计的望远镜目镜，测量不同条纹的衍射角，根据式\ref{eq:1}计算液体中超声波的波长$\Lambda$，再根据式\ref{eq:2}计算液体中声速$u$。
 \subsubsection*{3.采用测微目镜测量声速}
 
-采用测微目镜替换望远镜目镜。在观察到清晰条纹后，转动测微目镜上的鼓轮，测量每条条纹的位置，用逐差法求出条纹间距x，利用式（10）计算液体中声速u.
-请自列表格记录数据和计算，并分析结果的不确定度。
+采用测微目镜替换望远镜目镜。在观察到清晰条纹后，转动测微目镜上的鼓轮，测量每条条纹的位置，利用式\ref{eq:4}计算液体中声速$u$。
+
 
 \subsection*{【数据处理及分析】}
 	\subsubsection*{1. 采用衍射角法测量纯水声速}
@@ -286,6 +315,24 @@
 		u = 1439.56 m/s
 		$$
 
+		\paragraph{逐差法测量声速值}~
+		\newline
+		\indent
+		采用逐差法计算不同级次衍射条纹衍射角$\theta_k$的正弦值$sin(\theta_k)$之间的差值$\Delta sin(\theta_k)$，得
+		$$
+		\Delta sin(\theta_k) = 0.0043
+		$$
+		代入式\ref{eq:5}计算得：
+		$$
+		u = 1449.12 m/s
+		$$
+		$\Delta sin(\theta_k)$的标准差为$0.00037$，计算A类不确定度$S_A = 124.80$，计算B类不确定度$S_B = 56.25$，合成不确定度$S = 136.90$，故声速测量值
+		$$
+		u = 1449.12 \pm 136.90 m/s
+		$$
+        不确定度计算见代码：\nameref{sec:code1}
+
+
 		
 	\subsubsection*{2. 采用测微目镜测量声速}
 		\paragraph{实验参数} 钠黄光波长$\lambda = 589.3 nm$，超声频率$f = 10.64 MHz$，测微目镜焦距$F = 170mm$
@@ -332,31 +379,49 @@
 		\newline
 		\indent
 		拟合$k-x$曲线，结果如图\ref{fig:2}。直线斜率为1423.39。
+
+		由声速计算公式\ref{eq:4}，式中$x$为条纹角间距，即为上述拟合直线斜率的倒数。代入直线斜率和实验参数，计算得
+		$$
+		u = 1517.23 m/s
+		$$
+		
 		\begin{figure}[htbp]
 			\centering
 			\includegraphics[width=0.7\textwidth]{attachments/fig.2.png}
 			\caption{拟合$k-x$曲线}
 			\label{fig:2}
 		\end{figure}
-		
-		由声速计算公式\ref{eq:4}，式中$x$为条纹角间距，即为上述拟合直线斜率的倒数。代入直线斜率和实验参数，计算得
+
+		\paragraph{逐差法测量声速值}~
+		\newline
+		\indent
+		采用逐差法计算不同级次衍射条纹间距$\Delta x$，得
 		$$
-		u = 1517.23 m/s
+		\Delta x = 0.00070 m
 		$$
+		代入式\ref{eq:4}计算得：
+		$$
+		u = 1515.53 m/s
+		$$
+		$\Delta x$的标准差为$2.16E-5 m$，计算A类不确定度$S_A = 46.55$，计算A类不确定度$S_B = 1.24$，合成不确定度$S = 46.56$，故声速测量值
+		$$
+		u = 1515.53 \pm 46.56 m/s
+		$$
+		不确定度计算见代码：\nameref{sec:code2}
 \subsection*{【实验结果分析】}
 实验温度为$27^oC$，由纯水声速计算公式$u = 1404.3 + 4.7T - 0.04T^2$\cite{LUBBERS19981065}得声速理论值$u = 1502.04 m/s$。
 
-衍射角法测量值为$u = 1439.56 m/s$，相对误差为$4.15\%$，拟合相关系数为$0.99968$。
+\paragraph{衍射角法} 直线拟合方法计算$u = 1439.56 m/s$，相对误差为$4.15\%$，拟合相关系数为$0.99968$。逐差法计算$u = 1449.12 \pm 136.90 m/s$，相对误差为$3.52\%$，不确定度为$136.90$。
 
-测微目镜法测量值为$u = 1517.13 m/s$，相对误差为$1.01\%$，拟合相关系数为$0.99997$。
+\paragraph{测微目镜法} 直线拟合方法计算$u = 1517.23 m/s$，相对误差为$1.01\%$，拟合相关系数为$0.99997$。逐差法计算$u = 1515.53 \pm 46.56 m/s$，相对误差为$0.90\%$，不确定度为$46.56$。
 
-可见测微目镜法测量声速能获得更高的准确度。
+可见测微目镜法测量声速能获得更高的准确度，更低的不确定度。
 这是因为衍射角法测量需要手动转动分光计，转动角度无法精确控制，测量有较大误差。而使用测微目镜法测量只需调节转动螺旋测微头，调节更加方便且精细，读数精度更高，测量误差较小。
 %%end--------------------引用------------------------%%
 \printbibliography[title=参考文献] %title：默认是英文的reference，用这个选参数改成中文
 %%end--------------------引用------------------------%%
 
-\newpage
+
 \subsection*{【思考题】}
 	\subsubsection*{1. 由驻波理论知道，相邻波腹间的距离和相邻波节间的距离都等于半波长，为什么超声光栅的光栅常数等于超声波的波长呢？}
 		\begin{enumerate}[label=\arabic*.]
@@ -383,6 +448,60 @@
 		\end{enumerate}
 	\subsubsection*{3. 有的教材中，超声光栅实验的超声波频率为200kHz，请问此时能用光栅的原理解释实验结果吗？为什么？}
 		答：由式\ref{eq:5}，对于同一声速下同一光波长的同一衍射级而言，超声频率越低，则衍射角越小，即衍射条纹更密。当超声频率过低时，由瑞利判据，零级衍射条纹和一级衍射条纹无法分辨，因此无法进行测量，因此不能用光栅的原理解释实验结果。
+
+\subsection*{【主要计算代码】}
+\subsubsection*{1. 衍射角法}
+\label{sec:code1}
+\begin{lstlisting}
+	# mean & std of each measurements
+	delta_sin = (df3.iloc[4:7,2].sum() 
+	            - df3.iloc[0:3,2].sum())/12  
+	Sdelta_sin = (df3.iloc[:,2].diff()).std()
+	print(delta_sin, Sdelta_sin)
+	
+	u_exp12 = f*lam/delta_sin
+	print(u_exp12)
+	
+	# Diff
+	delta_sins = sp.symbols('delta_sins' ) 
+	U1 = f*lam/delta_sins
+	subs = {'delta_sins':delta_sin} 
+	U1_delta_sin = sp.diff(U1, 'delta_sins').evalf(subs = subs)
+	
+	# S
+	Sa = ( (Sdelta_sin*U1_delta_sin)**2 )**(1/2)
+	u = np.sin((np.pi/180)*(1/60))/(3**(1/2)) 
+	Sb = ( (u*U1_delta_sin)**2 )**(1/2)
+	S = ( (Sa)**2 + (Sb)**2 )**(1/2)
+	print('Sa={}\nSb={}\nS={}'.format(Sa, Sb, S))
+\end{lstlisting}
+
+\subsubsection*{2. 测微目镜法}
+\label{sec:code2}
+\begin{lstlisting}
+	# mean & std of each measurements
+	delta_x = (df5.iloc[4:7,0].sum() 
+	            - df5.iloc[0:3,0].sum())/12 
+	Sdelta_x = (df5.iloc[:,0].diff()).std()
+	print(delta_x, Sdelta_x)
+	
+	u_exp22 = F*f*lam/delta_x
+	print(u_exp22)
+	
+	# Diff
+	delta_xs = sp.symbols('delta_xs' ) 
+	U1 = F*f*lam/delta_xs
+	subs = {'delta_xs':delta_x} 
+	U1_delta_x = sp.diff(U1, 'delta_xs').evalf(subs = subs)
+	
+	# S
+	Sa = ( (Sdelta_x*U1_delta_x)**2 )**(1/2)
+	u = 1e-6/(3**(1/2)) 
+	Sb = ( (u*U1_delta_x)**2 )**(1/2)
+	S = ( (Sa)**2 + (Sb)**2 )**(1/2)
+	print('Sa={}\nSb={}\nS={}'.format(Sa, Sb, S))
+\end{lstlisting}
+
 \subsection*{【项目源码】}
 \href{https://github.com/Jeg-Vet/SYSU-PHY-EXP/tree/main/B13-Ultrasonic_grating}{SYSU-PHY-EXP/B13 Ultrasonic grating @Jeg-Vet(github.com)}
 
