@@ -2,6 +2,11 @@
 
 Repository for lab of general physics.
 
+Author: Jeg Vet. huangzw29@mail2.sysu.edu.cn
+
+Zhongshan School of Medicine, Sun Yat-sen University, Guangzhou
+
+Supported and taught by Luyoutang, School of Physics, Sun Yat-sen University.
 ## PHY-EXP-I
 
 - A0.4 Damped vibration
@@ -24,7 +29,9 @@ Repository for lab of general physics.
 
 ## PHY-EXP-II
 
-- C2-Franck_Hertz_experiment
-- B9-Michelson_interference_II
-- B13-Ultrasonic_grating
-
+- C2 Franck Hertz experiment
+- B9 Michelson interference II
+- B13 Ultrasonic grating
+- C3.1 Atomic emission spectra
+- C3.3 Absorption spectra
+- B10 Fraunhofer single-slit diffraction
