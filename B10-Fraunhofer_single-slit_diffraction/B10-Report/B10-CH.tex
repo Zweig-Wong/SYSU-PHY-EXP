@@ -168,7 +168,7 @@
 			\toprule
 			条纹级次	&理论位置$/mm$	&实验位置$/mm$	&相对误差 \\
 			\midrule
-			1  &1.62  &1.70  &-4.94\% \\
+			1  &1.62  &1.70   &4.94\% \\
 			2  &3.24  &3.21   &0.93\% \\
 			3  &4.86  &4.74   &2.47\% \\	
 			\bottomrule
@@ -215,9 +215,10 @@
 \end{minipage}
 \end{figure}
 
-\subsubsection*{3. $Seelight$仿真实验}
+\subsubsection*{3. $Seelight$激光夫琅禾费单缝衍射仿真实验}
+
 在$Seelight$光学仿真平台上搭建光路，采用与实验室实验相同的参数（表\ref{tab:0}）进行仿真实验。
-光路如\ref{fig:illus-3.1}，仿真结果如\ref{fig:illus-3.2}
+光路如图\ref{fig:illus-3.1}，仿真结果如图\ref{fig:illus-3.2}
 
 下载矩阵，使用seaborn重新绘制。我们注意到Seelight平台图像标度可能存在有误，
 因此按照设定的屏尺寸$2cm \times 2cm$重新建立映射。结果如图\ref{fig:3.1}所示。
@@ -269,9 +270,9 @@
 	\toprule
 	条纹级次 &$P_{the}/nW$ &$P_{exp}/nW$ &$I'_{the}$ &$I'_{exp}$ &相对误差 \\
 	\midrule
-	1  &51.930763  &57.334587  &0.047190  &0.052101  &-10.41\%	\\	
-	2  &18.132388  &22.977563  &0.016477  &0.020880  &-26.72\%	\\
-	3  & 9.170325  &18.096673  &0.008333  &0.016445  &-97.34\%	\\
+	1  &51.930763  &57.334587  &0.047190  &0.052101  &10.41\%	\\	
+	2  &18.132388  &22.977563  &0.016477  &0.020880  &26.72\%	\\
+	3  & 9.170325  &18.096673  &0.008333  &0.016445  &97.34\%	\\
 	\bottomrule
     \end{tabular}
 	\caption{\textbf{次级大条纹峰值}}
@@ -286,8 +287,8 @@
 			条纹级次	&理论位置$/mm$	&实验位置$/mm$	&相对误差 \\
 			\midrule
 			1  &2.313  &2.31  &0.12\% \\
-			2  &3.985  &3.99  &-0.13\% \\
-			3  &5.617  &5.68  &-1.12\% \\	
+			2  &3.985  &3.99  &0.13\% \\
+			3  &5.617  &5.68  &1.12\% \\	
 			\bottomrule
 		\end{tabular}
 		\caption{\textbf{次级大条纹位置}}
@@ -299,13 +300,107 @@
 			\toprule
 			条纹级次	&理论位置$/mm$	&实验位置$/mm$	&相对误差 \\
 			\midrule
-			1  &1.622  &1.63  &-0.49\% \\
-			2  &3.234  &3.24   &-0.18\% \\
+			1  &1.622  &1.63  &0.49\% \\
+			2  &3.234  &3.24   &0.18\% \\
 			3  &4.856  &4.85   &0.13\% \\	
 			\bottomrule
 		\end{tabular}
 		\caption{\textbf{暗纹位置}}
 		\label{tab:3.3}
+\end{table}
+
+\subsubsection*{4. $Seelight$平行光夫琅禾费单缝衍射仿真实验}
+
+在$Seelight$光学仿真平台上搭建光路，采用与实验室实验相同的参数（表\ref{tab:0}）进行仿真实验。
+光路如图\ref{fig:illus-4.1}，仿真结果如图\ref{fig:illus-4.2}
+
+下载矩阵，使用seaborn重新绘制。我们注意到Seelight平台图像标度可能存在有误，
+因此按照设定的屏尺寸$2cm \times 2cm$重新建立映射。结果如图\ref{fig:4.1}所示。
+可以看出，衍射图样中光能量主要集中于主极大，次级大光强迅速衰减。
+
+绘制相对光强分布，如图\ref{fig:4.2}。
+对比仿真结果和理论曲线，我们发现零级主极大条纹光强分布与理论曲线符合较好，
+但次级大相对光强偏低，且随着级次升高相对偏差越大，四级以及更高级次条纹消失。
+条纹各次级大峰值与理论对照以及相对误差如表\ref{tab:4.1}。
+（$P_{the}$：理论光功率；$P_{exp}$：实验光功率；$I'_{the}$：理论相对光强；$I'_{exp}$：实验相对光强）
+
+同时，我们测量了各次极大及各级暗纹的位置，结果如表\ref{tab:4.2}和表\ref{tab:4.3}。
+实验值相对误差较小，与理论预测相符。
+计算暗条纹间距均为$1.630mm$，与理论值$1.617mm$相比相对误差为$0.80\%$
+
+\begin{figure}[htbp]
+	\centering
+	\subfloat[光路设置]{\label{fig:illus-4.1}
+	\includegraphics[height=5cm]{attachments/illus-4.1.png}
+	}
+	\subfloat[仿真结果]{\label{fig:illus-4.2}
+	\includegraphics[height=5cm]{attachments/illus-4.2.png}
+	}
+	\caption{Seelight平台截图}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\subfloat[]{\label{fig:4.1.1}
+	\includegraphics[width=0.5\textwidth]{attachments/Fig.4.1.1.png}
+	}
+	\subfloat[]{\label{fig:4.1.2}
+	\includegraphics[width=0.5\textwidth]{attachments/Fig.4.1.2.png}
+	}
+	\caption{仿真衍射图样}
+	\label{fig:4.1}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.8\textwidth]{attachments//Fig.4.2.png}
+	\caption{仿真曲线}
+	\label{fig:4.2}
+\end{figure}
+
+\begin{table}[htbp]
+	\centering
+	\begin{tabular}{cccccc}
+	\toprule
+	条纹级次 &$P_{the}/nW$ &$P_{exp}/nW$ &$I'_{the}$ &$I'_{exp}$ &相对误差 \\
+	\midrule
+	1  &58294.723983  &62710.114720  &0.047189  &0.050763  &7.57\% \\
+	2  &20357.809824  &26125.924668  &0.016479  &0.021149  &28.33\% \\
+	3  &10302.816606  &18800.207478  &0.008340  &0.015219  &82.48\% \\
+	\bottomrule
+    \end{tabular}
+	\caption{\textbf{次级大条纹峰值}}
+	\label{tab:4.1}
+\end{table}
+
+
+\begin{table}[htbp]
+	\centering
+		\begin{tabular}{cccc}
+			\toprule
+			条纹级次	&理论位置$/mm$	&实验位置$/mm$	&相对误差 \\
+			\midrule
+			1  &2.313  &2.35  &1.60\% \\
+			2  &3.985  &4.03  &1.13\% \\
+			3  &5.617  &5.68  &1.12\% \\	
+			\bottomrule
+		\end{tabular}
+		\caption{\textbf{次级大条纹位置}}
+		\label{tab:4.2}
+\end{table}
+\begin{table}[htbp]
+	\centering
+		\begin{tabular}{cccc}
+			\toprule
+			条纹级次	&理论位置$/mm$	&实验位置$/mm$	&相对误差 \\
+			\midrule
+			1  &1.622  &1.63  &0.49\% \\
+			2  &3.234  &3.28   &1.42\% \\
+			3  &4.856  &4.89   &0.70\% \\	
+			\bottomrule
+		\end{tabular}
+		\caption{\textbf{暗纹位置}}
+		\label{tab:4.3}
 \end{table}
 
 \newpage
@@ -331,29 +426,29 @@
 \begin{equation}\label{eq:t2}
 	I_N = I_0\frac{sin^2(\frac{\pi asin \theta}{\lambda})}{(\frac{\pi asin \theta}{\lambda})^2} \times \frac{sin^2(\frac{N\pi dsin \theta}{\lambda})}{sin^2(\frac{\pi dsin \theta}{\lambda})}
 \end{equation}
-采用表\ref{tab:0}参数，代入$N = 1,2,3,4,100$计算相对光强，绘制图线如\ref{fig:4}
+采用表\ref{tab:0}参数，代入$N = 1,2,3,4,100$计算相对光强，绘制图线如\ref{fig:5}
 \newpage
 \begin{figure}[htbp]
 	\centering
-	\subfloat[N=1]{\label{fig:4.1}
-	\includegraphics[width=0.5\textwidth]{attachments//Fig.4.1.png}
+	\subfloat[N=1]{\label{fig:5.1}
+	\includegraphics[width=0.5\textwidth]{attachments//Fig.5.1.png}
 	}
-	\subfloat[N=2]{\label{fig:4.2}
-	\includegraphics[width=0.5\textwidth]{attachments//Fig.4.2.png}
-	}
-
-	\subfloat[N=3]{\label{fig:4.3}
-	\includegraphics[width=0.5\textwidth]{attachments//Fig.4.3.png}
-	}
-	\subfloat[N=4]{\label{fig:4.4}
-	\includegraphics[width=0.5\textwidth]{attachments//Fig.4.4.png}
+	\subfloat[N=2]{\label{fig:5.2}
+	\includegraphics[width=0.5\textwidth]{attachments//Fig.5.2.png}
 	}
 
-	\subfloat[N=100]{\label{fig:4.5}
-	\includegraphics[width=0.5\textwidth]{attachments//Fig.4.5.png}
+	\subfloat[N=3]{\label{fig:5.3}
+	\includegraphics[width=0.5\textwidth]{attachments//Fig.5.3.png}
+	}
+	\subfloat[N=4]{\label{fig:5.4}
+	\includegraphics[width=0.5\textwidth]{attachments//Fig.5.4.png}
+	}
+
+	\subfloat[N=100]{\label{fig:5.5}
+	\includegraphics[width=0.5\textwidth]{attachments//Fig.5.5.png}
 	}
 	\caption{夫琅禾费多缝衍射}
-	\label{fig:4}
+	\label{fig:5}
 \end{figure}
 
 \subsection*{【项目源码】}
