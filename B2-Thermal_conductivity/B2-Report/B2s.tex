@@ -1,0 +1,115 @@
+% %---------------------导言区---------------------------%
+\documentclass[12pt,a4paper,UTF8]{ctexart}
+\usepackage{geometry}
+	\geometry{left=2.5cm,right=2.5cm,top=3.2cm,bottom=2.8cm}
+\usepackage{xeCJK,amsmath,paralist,enumitem,booktabs,multirow,graphicx,subfig,setspace,listings,lastpage}
+\usepackage[colorlinks,
+            linkcolor=blue,       
+            anchorcolor=blue,  
+            citecolor=blue,       
+            ]{hyperref}
+	\setlength{\parindent}{2em}
+	\lstset{language=Python}
+\usepackage{fancyhdr}
+	\pagestyle{fancy}
+	\rhead{B2 准稳态法测量不良导体的热导率}
+	\lhead{基础物理实验\uppercase\expandafter{\romannumeral2}补充材料}
+	\cfoot{Page \thepage/\pageref{LastPage}}  %当前页\总页数
+	\rfoot{\today}
+	\renewcommand{\headrulewidth}{0.4pt}
+	\renewcommand{\theenumi}{(\arabic{enumi})}
+
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\thetable}{S\arabic{table}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%正文开始%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{center}
+\LARGE\textbf{B2 准稳态法测量不良导体的热导率 补充材料}
+\end{center}
+
+%%信息
+\begin{doublespacing}
+	\centering
+	\begin{tabular}{ll}
+	 & \\
+	{\CJKfontspec{Droid Sans Fallback} 实验人：黄子维 20980066} & {\CJKfontspec{Droid Sans Fallback}合作者：黄睿杰 20980062}\\
+	{\CJKfontspec{Droid Sans Fallback} 实验时间：2021.11.25~星期四~上午} & {\CJKfontspec{Droid Sans Fallback} 室温：22$^{\circ}$C~相对湿度：40\%}
+	\end{tabular}
+\end{doublespacing}
+
+
+\subsection*{实验设备}
+\begin{table}[htbp]
+    \centering
+        \begin{tabular}{cccc}
+            \toprule
+            编号 &名称 &数量 &仪器参数及型号 \\
+            \midrule
+            1	&比热/导热系数实验仪	&1	&$ZKY-BRDR$    \\    
+            2	&样品架和保温杯	&1	&$ZKY-BRDR/S$ \\
+            3	&有机玻璃样品	&4	& \\
+            4	&橡胶材料样品	&4	&   \\
+            5	&T型热电偶	&2	&    \\
+            \bottomrule
+        \end{tabular}
+        \caption{\textbf{实验设备}}
+\end{table}	
+
+\subsection*{实验参数}
+
+\begin{table}[htbp]
+    \centering
+        \begin{tabular}{cc}
+            \toprule
+            项目 &参数  \\
+            \midrule
+            加热电压$U$ &$17.0 V$ \\
+            电阻$r$ &$110 \Omega$ \\
+            有机玻璃密度$\rho$ &$1196 kg/m^3$ \\
+            橡胶材料密度$\rho$ &$1374 kg/m^3$ \\
+            \bottomrule
+        \end{tabular}
+        \caption{\textbf{实验参数}}
+\end{table}	
+
+
+
+
+
+\subsection*{思考题}
+\subsubsection*{1. 样品导热系数的大小与温度有什么关系？}
+样品的导热系数随温度升高而变大。这是因为温度升高会加快分子热运动，促进固体骨架的导热及孔隙内流体（如气体）的对流传热。
+此外，孔壁间辐射换热也会随温度的升高而加强。
+\subsubsection*{2. 样品导热系数的大小与导热性能有什么关系？}
+导热系数越大，导热性能越好。在热流密度和厚度相同时，物体高温侧壁面与低温侧壁面间的温度差随导热系数增大而减小。
+\subsubsection*{3. 分析本实验的主要误差来源？}
+\begin{enumerate}[label=\arabic*.]
+	\item 实验样品材料并非理想无限大导热模型，虽然对面积引入了边缘修正因子$A$，但$A$大小的确定是经验性的，这可能会引入较大误差。
+	\item 实验用样品材料尺寸并非绝对一致均匀相同，中心面两侧样品厚度并非完全相等，这可能对导热带来影响。
+	\item 实限于实验条件，冷端并非置于摄氏零度环境，但我们参考的热电偶分度表是基于冷端摄氏零度标定的，因此热电偶温度-电压系数可能并不准确。
+	\item 橡胶材料具有弹性，使用游标卡尺测量难以控制，这会引入测量误差。
+	\item 由于实验须在升温过程中手动记录数据并切换电压测量，难以把握记录时机，可能时间记录并不完全准确。
+\end{enumerate}
+\subsubsection*{4. 本实验中怎样实现稳定导热？如何判定已经到达稳定导热状态？}
+稳定导热：
+\begin{enumerate}[label=\arabic*.]
+	\item 实验采用薄膜加热器，其加热功率在加热面上均匀且可精确控制。提供稳定电压，则加热功率可以维持恒定。
+	\item 使用四块完全相同的待测样品两两夹持薄膜加热器，对称平衡热传导，保证导热稳定。
+\end{enumerate}
+
+判定：
+\begin{enumerate}[label=\arabic*.]
+    \item 中心面温度随时间线性上升
+    \item 中心面和导热面温差恒定
+\end{enumerate}
+
+
+
+\subsection*{项目源码}
+\href{https://github.com/Jeg-Vet/SYSU-PHY-EXP/tree/main/B2-Thermal_conductivity}{SYSU-PHY-EXP/B6 Thermal conductivity.Jeg-Vet(github.com)}
+
+\end{document}
