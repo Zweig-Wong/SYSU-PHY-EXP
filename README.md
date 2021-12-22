@@ -35,3 +35,9 @@ Supported and taught by Luyoutang, School of Physics, Sun Yat-sen University.
 - C3.1 Atomic emission spectra
 - C3.3 Absorption spectra
 - B10 Fraunhofer single-slit diffraction
+- B11 Circular aperture diffraction
+- B6 AC bridge
+- B2 Thermal conductivity
+- B12 Temperature measuring and controlling instrument
+- B1 Photoelectric effect
+- C1 Millikan's oil-drop experiment
