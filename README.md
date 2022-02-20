@@ -4,7 +4,7 @@ Repository for lab of general physics.
 
 Author: Jeg Vet. huangzw29@mail2.sysu.edu.cn
 
-Zhongshan School of Medicine, Sun Yat-sen University, Guangzhou
+Trained under the eight-year program of clinical medicine in Zhongshan School of Medicine, Sun Yat-sen University, Guangzhou
 
 Supported and taught by Luyoutang, School of Physics, Sun Yat-sen University.
 ## PHY-EXP-I
