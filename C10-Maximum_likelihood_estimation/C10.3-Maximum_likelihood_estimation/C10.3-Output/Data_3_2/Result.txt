@@ -1,0 +1,14 @@
+ final_simplex: (array([[ 78.32719069, 146.67284266],
+       [ 78.32718916, 146.67277015],
+       [ 78.32711052, 146.67284788]]), array([-290.27754643, -290.27754643, -290.27754643]))
+           fun: -290.27754642911384
+       message: 'Optimization terminated successfully.'
+          nfev: 97
+           nit: 50
+        status: 0
+       success: True
+             x: array([ 78.32719069, 146.67284266])
+
+Number of A events = $78.33^{+11.44}_{-10.71}$
+Number of B events = $146.67^{+14.21}_{-13.43}$
+
