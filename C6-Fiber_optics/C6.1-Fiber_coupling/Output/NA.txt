@@ -1,0 +1,16 @@
+Fiber, Numerical aperature ($cm$)
+$\phi 62.5\mu m$, 0.277
+$\phi 9\mu m$, 0.185
+$\phi 4\mu m$, 0.183
+
+
+\begin{table}[!ht]
+    \centering
+    \begin{tabular}{|l|l|}
+    \hline
+        Fiber & Numerical aperature ($cm$) \\ \hline
+        $\phi 62.5\mu m$ & 0.277 \\ \hline
+        $\phi 9\mu m$ & 0.185 \\ \hline
+        $\phi 4\mu m$ & 0.183 \\ \hline
+    \end{tabular}
+\end{table}

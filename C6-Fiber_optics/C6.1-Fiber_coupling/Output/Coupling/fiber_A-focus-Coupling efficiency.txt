@@ -1,0 +1,65 @@
+# Output of the uncertainty calculation
+
+-----------------------------------------
+
+## Input: 
+
+Original measurements:
+Dataframe: 
+     laser
+0  0.00234
+1  0.00233
+2  0.00230
+3  0.00227
+4  0.00228
+Dataframe: 
+        dir    focus    fiber
+0  0.000007  0.00173  fiber_A
+1  0.000007  0.00167  fiber_A
+2  0.000007  0.00172  fiber_A
+3  0.000007  0.00168  fiber_A
+4  0.000007  0.00170  fiber_A
+
+Parameters: ['focus', 'laser']
+U: {'dir': 5.773502691896258e-09, 'laser': 5.773502691896259e-06, 'focus': 5.773502691896259e-06}
+Formula: 100*A/B
+
+-----------------------------------------
+
+## Output: 
+
+Basic statistics of your dataframes: 
+Dataframe summary: 
+          laser
+count  5.000000
+mean   0.002304
+std    0.000030
+min    0.002270
+25%    0.002280
+50%    0.002300
+75%    0.002330
+max    0.002340
+Dataframe summary: 
+                dir     focus
+count  5.000000e+00  5.000000
+mean   6.936000e-06  0.001700
+std    3.049590e-08  0.000025
+min    6.900000e-06  0.001670
+25%    6.920000e-06  0.001680
+50%    6.930000e-06  0.001700
+75%    6.950000e-06  0.001720
+max    6.980000e-06  0.001730
+
+Mean and std of your parameters: 
+         focus     laser
+mean  0.001700  0.002304
+std   0.000025  0.000030
+
+Result: 73.78472222222224
+
+Uncertainty of the result: 
+Type A uncertainty: 1.47589180327731
+Type B uncertainty: 0.311414907703922
+Expanded uncertainty: 1.50838849760975
+
+Final Result: $73.78472222222224 \pm 1.50838849760975$

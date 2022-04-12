@@ -1,0 +1,24 @@
+Fiber, , Direct coupling, Through a lens
+$\phi 62.5\mu m$, Coupling efficency(\%), $0.301\pm0.004$, $73.785\pm1.508$ 
+                , Coupling loss($dB$), $58.057\pm0.142$, $3.040\pm0.204$
+$\phi 9\mu m$, Coupling efficency(\%), $0.0083\pm0.0003$, $71.354\pm1.230$
+             , Coupling loss($dB$), $94.000\pm0.386$, $3.375\pm0.172$
+$\phi 4\mu m$, Coupling efficenc(\%), $0.0031\pm0.0002$, $44.583\pm1.262$
+             , Coupling loss($dB$), $103.763\pm0.824$, $8.078\pm0.283$
+
+
+
+
+\begin{table}[!ht]
+    \centering
+    \begin{tabular}{|l|l|l|l|}
+    \hline
+        Fiber & ~ & Direct coupling & Through a lens \\ \hline
+        $\phi 62.5\mu m$ & Coupling efficency(\%) & $0.301\pm0.004$ & $73.785\pm1.508$ \\ \hline
+        ~ & Coupling loss($dB$) & $58.057\pm0.142$ & $3.040\pm0.204$ \\ \hline
+        $\phi 9\mu m$ & Coupling efficency(\%) & $0.0083\pm0.0003$ & $71.354\pm1.230$ \\ \hline
+        ~ & Coupling loss($dB$) & $94.000\pm0.386$ & $3.375\pm0.172$ \\ \hline
+        $\phi 4\mu m$ & Coupling efficenc(\%) & $0.0031\pm0.0002$ & $44.583\pm1.262$ \\ \hline
+        ~ & Coupling loss($dB$) & $103.763\pm0.824$ & $8.078\pm0.283$ \\ \hline
+    \end{tabular}
+\end{table}
