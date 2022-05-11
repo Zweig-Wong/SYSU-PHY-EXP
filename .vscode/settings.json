@@ -1,5 +1,6 @@
 {
     "conventionalCommits.scopes": [
-        "C6"
+        "C6",
+        "C9"
     ]
 }
