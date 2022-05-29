@@ -2,7 +2,7 @@
 
 Repository for lab of general physics.
 
-Author: Jeg Vet. huangzw29@mail2.sysu.edu.cn
+Author: Zweig Wong. huangzw29@mail2.sysu.edu.cn
 
 Trained under the eight-year program of clinical medicine in Zhongshan School of Medicine, Sun Yat-sen University, Guangzhou
 

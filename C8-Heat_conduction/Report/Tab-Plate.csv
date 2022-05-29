@@ -1,0 +1,5 @@
+Sample,Par.,Real-world EXP.,Sim. Ideal mod.,Sim. Complex Mod.
+Organic glass,Heating rate $(K/s)$,0.0079,0.0091,0.0054
+,Temperature difference $(K)$,4.13,4.56,5.25
+Rubber,Heating rate $(K/s)$,0.0075,0.0065,0.0046
+,Temperature difference $(K)$,1.85,1.80,2.13
