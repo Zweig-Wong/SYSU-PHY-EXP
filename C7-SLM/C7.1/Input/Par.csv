@@ -1,0 +1,9 @@
+Par,Val
+Checker_x_p,1024
+Checker_y_p,768
+Checker_A_x_g,8
+Checker_A_y_g,6
+Checker_B_x_g,64
+Checker_B_y_g,48
+SLM_d,26
+CCD_d,3.2
