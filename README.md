@@ -41,3 +41,10 @@ Supported and taught by Luyoutang, School of Physics, Sun Yat-sen University.
 - B12 Temperature measuring and controlling instrument
 - B1 Photoelectric effect
 - C1 Millikan's oil-drop experiment
+
+## PHY-EXP-III
+- C10 Maximum likelihood estimation
+- C6 Fiber optics
+- C9 Chaotic circuit
+- C8 Heat conduction
+- C7 SLM
